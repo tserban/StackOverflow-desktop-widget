@@ -26,7 +26,6 @@ namespace SO_Widget
         private int userId;
         private string profileLink = null;
         private System.Windows.Threading.DispatcherTimer timer = null;
-        private int commCount;
         private int currentRep;
         private int lastRep;
 
@@ -37,14 +36,28 @@ namespace SO_Widget
             Left = SystemParameters.PrimaryScreenWidth - Width - 10;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void ReadLastRep()
         {
-            using (TextReader repRdr = new StreamReader("rep.txt"))
+            TextReader repRdr = null;
+            try
             {
+                repRdr = new StreamReader("rep.txt");
                 currentRep = Int32.Parse(repRdr.ReadLine());
                 lastRep = currentRep;
             }
+            catch
+            {
+                currentRep = 0;
+                lastRep = currentRep;
+            }
+            finally
+            {
+                if (repRdr != null) repRdr.Close();
+            }
+        }
 
+        private void InitTimer()
+        {
             TextReader rdr = null;
             try
             {
@@ -56,7 +69,6 @@ namespace SO_Widget
                 timer.Interval = new TimeSpan(0, 0, 60);
                 timer.Start();
                 Timer_Tick(this, null);
-                CommentImg.Visibility = System.Windows.Visibility.Hidden;
             }
             catch
             {
@@ -64,8 +76,14 @@ namespace SO_Widget
             }
             finally
             {
-                if(rdr != null) rdr.Close();
+                if (rdr != null) rdr.Close();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReadLastRep();
+            InitTimer();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -110,12 +128,6 @@ namespace SO_Widget
         {
             if (timer != null) timer.Stop();
             this.Close();
-        }
-
-        private void CommentImg_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CommentImg.Visibility = System.Windows.Visibility.Hidden;
-            if (profileLink != null) System.Diagnostics.Process.Start(profileLink);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
