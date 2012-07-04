@@ -1,1 +1,4 @@
 A small desktop widget that can keep track of your reputation in real-time.
+Place your StackOverflow userId in the user.txt file and run the executable. 
+Automatic updates are performed every minute; manual updates can also be
+triggered.
