@@ -1,0 +1,955 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StacMan</name>
+    </assembly>
+    <members>
+        <member name="F:StackExchange.StacMan.Questions.FavoriteSort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.FavoriteSort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.FavoriteSort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.FavoriteSort.Added">
+            <summary>
+            when the user favorited the question
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Posts.Sort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Posts.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Posts.Sort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Order.Asc">
+            <summary>
+            Ascending
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Order.Desc">
+            <summary>
+            Descending
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ISuggestedEditMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.SuggestedEdits.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get all the suggested edits on the site. (API Method: "/suggested-edits")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ISuggestedEditMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.SuggestedEdits.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the suggested edits identified by a set of ids. (API Method: "/suggested-edits/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IErrorMethods.GetAll(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get descriptions of all the errors that the API could return. (API Method: "/errors")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IErrorMethods.Simulate(System.Int32,System.String)">
+            <summary>
+            Simulate an API error for testing purposes. (API Method: "/errors/{id}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IBadgeMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Badges.AllSort},System.Nullable{StackExchange.StacMan.Badges.Rank},System.Nullable{StackExchange.StacMan.Badges.Rank},System.String,System.String,System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all badges on the site, in alphabetical order. (API Method: "/badges")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IBadgeMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Badges.AllSort},System.Nullable{StackExchange.StacMan.Badges.Rank},System.Nullable{StackExchange.StacMan.Badges.Rank},System.String,System.String,System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the badges identified by ids. (API Method: "/badges/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IBadgeMethods.GetNamed(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Badges.Sort},System.Nullable{StackExchange.StacMan.Badges.Rank},System.Nullable{StackExchange.StacMan.Badges.Rank},System.String,System.String,System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all non-tagged-based badges in alphabetical order. (API Method: "/badges/name")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IBadgeMethods.GetRecent(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get badges recently awarded on the site. (API Method: "/badges/recipients")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IBadgeMethods.GetRecentByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get the recent recipients of the given badges. (API Method: "/badges/{ids}/recipients")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IBadgeMethods.GetTagBased(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Badges.Sort},System.Nullable{StackExchange.StacMan.Badges.Rank},System.Nullable{StackExchange.StacMan.Badges.Rank},System.String,System.String,System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all tagged-based badges in alphabetical order. (API Method: "/badges/tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IPrivilegeMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get all the privileges available on the site. (API Method: "/privileges")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IAccessTokenMethods.Invalidate(System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Allows an application to dispose of access_tokens when it is done with them. (API Method: "/access-tokens/{accessTokens}/invalidate")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IAccessTokenMethods.Get(System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Allows an application to inspect access_tokens it has, useful for debugging. (API Method: "/access-tokens/{accessTokens}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.AllSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all questions on the site. (API Method: "/questions")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions identified by a set of ids. (API Method: "/questions/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetAnswers(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the answers to the questions identified by a set of ids. (API Method: "/questions/{ids}/answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetComments(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments on the questions identified by a set of ids. (API Method: "/questions/{ids}/comments")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetLinked(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.RelatedSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions that link to the questions identified by a set of ids. (API Method: "/questions/{ids}/linked")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetRelated(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.RelatedSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions that are related to the questions identified by a set of ids. (API Method: "/questions/{ids}/related")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetTimelines(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get the timelines of the questions identified by a set of ids. (API Method: "/questions/{ids}/timeline")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetFeatured(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all questions on the site with active bounties. (API Method: "/questions/unanswered")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetUnanswered(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all questions the site considers unanswered. (API Method: "/questions/featured")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IQuestionMethods.GetWithNoAnswers(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all questions on the site with no answers. (API Method: "/questions/no-answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Tags.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get the tags on the site. (API Method: "/tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetByName(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Tags.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get tags on the site by their names. (API Method: "/tags/{tags}/info")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetModeratorOnly(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Tags.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get the tags on the site that only moderators can use. (API Method: "/tags/moderator-only")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetRequired(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Tags.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get the tags on the site that fulfill required tag constraints. (API Method: "/tags/required")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetAllSynonyms(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.TagSynonyms.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get all the tag synonyms on the site. (API Method: "/tags/synonyms")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetFrequentlyAsked(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get frequently asked questions in a set of tags. (API Method: "/tags/{tags}/faq")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetRelated(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            /tags/{tags}/related (API Method: "/tags/{tags}/related")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetSynonymsForTags(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.TagSynonyms.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the synonyms for a specific set of tags. (API Method: "/tags/{tags}/synonyms")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetTopAnswerers(System.String,System.String,StackExchange.StacMan.Tags.Period,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the top answer posters in a specific tag, either in the last month or for all time. (API Method: "/tags/{tag}/top-answerers/{period}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetTopAskers(System.String,System.String,StackExchange.StacMan.Tags.Period,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the top question askers in a specific tag, either in the last month or for all time. (API Method: "/tags/{tag}/top-askers/{period}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ITagMethods.GetTagWikis(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the wiki entries for a set of tags. (API Method: "/tags/{tags}/wikis")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IPostMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Posts.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get all posts (questions and answers) in the system. (API Method: "/posts")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IPostMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Posts.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get all posts identified by a set of ids. Useful for when the type of post (question or answer) is not known. (API Method: "/posts/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IPostMethods.GetComments(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get comments on the posts (question or answer) identified by a set of ids. (API Method: "/posts/{ids}/comments")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IPostMethods.GetRevisions(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get revisions on the set of posts in ids. (API Method: "/posts/{ids}/revisions")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IPostMethods.GetSuggestedEdits(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.SuggestedEdits.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get suggested edits on the set of posts in ids. (API Method: "/posts/{ids}/suggested-edits")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IFilterMethods.Read(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Decode a set of filters, useful for debugging purposes. (API Method: "/filters/{filters}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IFilterMethods.Create(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Create a new filter. (API Method: "/filters/create")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IInboxMethods.Get(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get a user's inbox, outside of the context of a site. [auth required] (API Method: "/inbox")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IInboxMethods.GetUnread(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime})">
+            <summary>
+            Get the unread items in a user's inbox, outside of the context of a site. [auth required] (API Method: "/inbox/unread")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Users.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order},System.String)">
+            <summary>
+            Get all users on the site. (API Method: "/users")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Users.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the users identified by a set of ids. (API Method: "/users/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMe(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Users.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the authenticated user [auth required] (API Method: "/me")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetAnswers(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the answers posted by the users identified by a set of ids. (API Method: "/users/{ids}/answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyAnswers(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the answers posted by the authenticated user. [auth required] (API Method: "/me/answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetBadges(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Badges.UserSort},System.Nullable{StackExchange.StacMan.Badges.Rank},System.Nullable{StackExchange.StacMan.Badges.Rank},System.String,System.String,System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the badges earned by the users identified by a set of ids. (API Method: "/users/{ids}/badges")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyBadges(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Badges.UserSort},System.Nullable{StackExchange.StacMan.Badges.Rank},System.Nullable{StackExchange.StacMan.Badges.Rank},System.String,System.String,System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{StackExchange.StacMan.Badges.BadgeType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the badges earned by the authenticated user. [auth required] (API Method: "/me/badges")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetComments(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments posted by the users identified by a set of ids. (API Method: "/users/{ids}/comments")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyComments(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments posted by the authenticated user. [auth required] (API Method: "/me/comments")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetCommentsToUser(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments posted by a set of users in reply to another user. (API Method: "/users/{ids}/comments/{toid}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyCommentsToUser(System.String,System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments posted by the authenticated user in reply to another user. [auth required] (API Method: "/me/comments/{toid}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetFavorites(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.FavoriteSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions favorited by users identified by a set of ids. (API Method: "/users/{ids}/favorites")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyFavorites(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.FavoriteSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions favorited by the authenticated user. [auth required] (API Method: "/me/favorites")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetCommentsMentionedIn(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments that mention one of the users identified by a set of ids. (API Method: "/users/{ids}/mentioned")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyCommentsMentionedIn(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the comments that mention the authenticated user. [auth required] (API Method: "/me/mentioned")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetPrivileges(System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the privileges the given user has on the site. (API Method: "/users/{id}/privileges")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyPrivileges(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the privileges the authenticated user has on the site. [auth required] (API Method: "/me/privileges")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetQuestions(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by the users identified by a set of ids. (API Method: "/users/{ids}/questions")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyQuestions(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by the authenticated user. [auth required] (API Method: "/me/questions")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetFeaturedQuestions(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions on which a set of users have active bounties. (API Method: "/users/{ids}/questions/featured")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyFeaturedQuestions(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions on which the authenticated user has active bounties. [auth required] (API Method: "/me/questions/featured")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetQuestionsWithNoAnswers(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by a set of users which have no answers. (API Method: "/users/{ids}/questions/featured")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyQuestionsWithNoAnswers(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by the authenticated user which have no answers. [auth required] (API Method: "/me/questions/featured")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetQuestionsWithUnaccepted(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by a set of users which have at least one answer but no accepted answer. (API Method: "/users/{ids}/questions/unaccepted")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyQuestionsWithUnaccepted(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by the authenticated user which have at least one answer but no accepted answer. [auth required] (API Method: "/me/questions/unaccepted")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetUnansweredQuestions(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by a set of users which are not considered to be adequately answered. (API Method: "/users/{ids}/questions/unanswered")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyUnansweredQuestions(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the questions asked by the authenticated user which are not considered to be adequately answered. [auth required] (API Method: "/me/questions/unanswered")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetReputation(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get a subset of the reputation changes experienced by the users identified by a set of ids. (API Method: "/users/{ids}/reputation")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyReputation(System.String,System.String,System.String)">
+            <summary>
+            Get a subset of the reputation changes experienced by the authenticated user. [auth required] (API Method: "/me/reputation")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetSuggestedEdits(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.SuggestedEdits.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the suggested edits provided by the users identified by a set of ids. (API Method: "/users/{ids}/suggested-edits")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMySuggestedEdits(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.SuggestedEdits.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the suggested edits provided by the authenticated user. [auth required] (API Method: "/me/suggested-edits")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetTags(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Tags.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the tags that the users (identified by a set of ids) have been active in. (API Method: "/users/{ids}/tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyTags(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Tags.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the tags that the authenticated user has been active in. [auth required] (API Method: "/me/tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetTopAnswers(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the top answers a user has posted on questions with a set of tags. (API Method: "/users/{id}/tags/{tags}/top-answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyTopAnswers(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the top answers the authenticated user has posted on questions with a set of tags. [auth required] (API Method: "/me/tags/{tags}/top-answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetTopQuestions(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the top questions a user has posted with a set of tags. (API Method: "/users/{id}/tags/{tags}/top-questions")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyTopQuestions(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the top questions the authenticated user has posted with a set of tags. [auth required] (API Method: "/me/tags/{tags}/top-questions")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetTimelines(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get a subset of the actions of that have been taken by the users identified by a set of ids. (API Method: "/users/{ids}/timeline")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyTimeline(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get a subset of the actions of that have been taken by the authenicated user. [auth required] (API Method: "/me/timeline")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetTopAnswerTags(System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the top tags (by score) a single user has posted answers in. (API Method: "/users/{id}/top-answer-tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyTopAnswerTags(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the top tags (by score) the authenticated user has posted answers in. [auth required] (API Method: "/me/top-answer-tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetTopQuestionTags(System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the top tags (by score) a single user has asked questions in. (API Method: "/users/{id}/top-question-tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyTopQuestionTags(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the top tags (by score) the authenticated user has asked questions in. [auth required] (API Method: "/me/top-question-tags")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetModerators(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Users.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the users who have moderation powers on the site. (API Method: "/users/moderators")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetElectedModerators(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Users.Sort},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String,System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get the users who have moderation powers on the site, and were actually elected. (API Method: "/users/moderators/elected")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetInbox(System.String,System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get a user's inbox. [auth required] (API Method: "/users/{id}/inbox")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyInbox(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the authenticated user's inbox. [auth required] (API Method: "/me/inbox")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetInboxUnread(System.String,System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime})">
+            <summary>
+            Get the unread items in a user's inbox. [auth required] (API Method: "/users/{id}/inbox/unread")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyInboxUnread(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime})">
+            <summary>
+            Get the unread items in the authenticated user's inbox. [auth required] (API Method: "/me/inbox/unread")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetAssociated(System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get a user's associated accounts. (API Method: "/users/{ids}/associated")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IUserMethods.GetMyAssociated(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get the associated user's associated accounts. [auth required] (API Method: "/me/associated")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ISiteMethods.GetAll(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get all the sites in the Stack Exchange network. (API Method: "/sites")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IInfoMethods.Get(System.String,System.String)">
+            <summary>
+            Get information about the entire site. (API Method: "/info")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IRevisionMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Guid},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get all revisions identified by a set of ids. (API Method: "/revisions/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ICommentMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get all comments on the site. (API Method: "/comments")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ICommentMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get comments identified by a set of ids. (API Method: "/comments/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ISearchMethods.GetMatches(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.SearchSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order},System.String,System.String,System.String)">
+            <summary>
+            Search the site for questions meeting certain criteria. (API Method: "/search")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.ISearchMethods.GetSimilar(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Questions.SearchSort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order},System.String,System.String,System.String)">
+            <summary>
+            Search the site based on similarity to a title. (API Method: "/similar")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IEventMethods.GetRecent(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime})">
+            <summary>
+            Get recent events that have occurred on the site. Effectively a stream of new users and content. [auth required] (API Method: "/events")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IAnswerMethods.GetAll(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get all answers on the site. (API Method: "/answers")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IAnswerMethods.GetByIds(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Answers.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get answers identified by a set of ids. (API Method: "/answers/{ids}")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IAnswerMethods.GetComments(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{StackExchange.StacMan.Comments.Sort},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{StackExchange.StacMan.Order})">
+            <summary>
+            Get comments on the answers identified by a set of ids. (API Method: "/answers/{ids}/comments")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.IApplicationMethods.Deauthenticate(System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Allows an application to de-authorize itself for a set of users. (API Method: "/apps/{accessTokens}/de-authenticate")
+            </summary>
+        </member>
+        <member name="M:StackExchange.StacMan.StacManClient.#ctor(StackExchange.StacMan.FilterBehavior,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StackExchange.StacMan.StacManClient"/> class.
+            </summary>
+            <param name="filterBehavior">Desired level of filter validation.</param>
+            <param name="key">Your app's Stack Exchange API V2 key (optional)</param>
+        </member>
+        <member name="M:StackExchange.StacMan.StacManClient.IsFilterRegistered(System.String)">
+            <summary>
+            Check whether a filter has been registered. This is only valid when FilterBehavior is Strict.
+            </summary>
+            <param name="filter">The filter to check.</param>
+            <returns>True if <paramref name="filter"/> is registered.</returns>
+        </member>
+        <member name="M:StackExchange.StacMan.StacManClient.RegisterFilters(System.String[])">
+            <summary>
+            Register filters with StacManClient. Once a filter has been registered, getting a property not included in the filter (on an object returned using
+            the filter) throws a FilterException.
+            <para>Filter registration is only necessary (or possible) when FilterBehavior is Strict.</para>
+            <remarks>IMPORTANT: <see cref="M:StackExchange.StacMan.StacManClient.RegisterFilters(System.String[])"/> incurs one API call (per 20 unregistered filters) each time it's called, so for best performance,
+            it should be called sparingly and at most once per filter, e.g. once only when your app starts.</remarks>
+            </summary>
+            <param name="filters">The filter(s) to register.</param>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.SuggestedEdits">
+            <summary>
+            Stack Exchange API SuggestedEdits methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Errors">
+            <summary>
+            Stack Exchange API Errors methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Badges">
+            <summary>
+            Stack Exchange API Badges methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.ApiTimeoutMs">
+            <summary>
+            Gets or sets the number of milliseconds to wait before a request to the Stack Exchange API times out.
+            <para>Default is 5000.</para>
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.MaxSimultaneousRequests">
+            <summary>
+            Gets or sets the maximum number of simultaneous requests to the Stack Exchange API that can be active at any given time.
+            Additional requests are queued up.
+            <para>Default is 10.</para>
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.RespectBackoffs">
+            <summary>
+            Gets or sets whether StacMan should automatically abide by the "backoff" returned by the API (http://api.stackexchange.com/docs/throttle).
+            <para>Default is true.</para>
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Privileges">
+            <summary>
+            Stack Exchange API Privileges methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.AccessTokens">
+            <summary>
+            Stack Exchange API AccessTokens methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Questions">
+            <summary>
+            Stack Exchange API Questions methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Tags">
+            <summary>
+            Stack Exchange API Tags methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Posts">
+            <summary>
+            Stack Exchange API Posts methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Filters">
+            <summary>
+            Stack Exchange API Filters methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Inbox">
+            <summary>
+            Stack Exchange API Inbox methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Users">
+            <summary>
+            Stack Exchange API Users methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Sites">
+            <summary>
+            Stack Exchange API Sites methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Info">
+            <summary>
+            Stack Exchange API Info methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Revisions">
+            <summary>
+            Stack Exchange API Revisions methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Comments">
+            <summary>
+            Stack Exchange API Comments methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Search">
+            <summary>
+            Stack Exchange API Search methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Events">
+            <summary>
+            Stack Exchange API Events methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Answers">
+            <summary>
+            Stack Exchange API Answers methods
+            </summary>
+        </member>
+        <member name="P:StackExchange.StacMan.StacManClient.Applications">
+            <summary>
+            Stack Exchange API Applications methods
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.UserSort.Rank">
+            <summary>
+            rank
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.UserSort.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.UserSort.Type">
+            <summary>
+            badge_type
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.UserSort.Awarded">
+            <summary>
+            badge award date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.SuggestedEdits.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.SuggestedEdits.Sort.Approval">
+            <summary>
+            approval_date (does not return unapproved suggested_edits)
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.SuggestedEdits.Sort.Rejection">
+            <summary>
+            rejection_date (does not return unrejected suggested_edits)
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.RelatedSort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.RelatedSort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.RelatedSort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.RelatedSort.Rank">
+            <summary>
+            a priority sort by site applies, subject to change at any time
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Comments.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Comments.Sort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.AllSort.Rank">
+            <summary>
+            rank
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.AllSort.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.AllSort.Type">
+            <summary>
+            badge_type
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.TagSynonyms.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.TagSynonyms.Sort.Applied">
+            <summary>
+            applied_count
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.TagSynonyms.Sort.Activity">
+            <summary>
+            last_applied_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Answers.Sort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Answers.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Answers.Sort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.SearchSort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.SearchSort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.SearchSort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.SearchSort.Relevance">
+            <summary>
+            matches the relevance tab on the site itself
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.AllSort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.AllSort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.AllSort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.AllSort.Hot">
+            <summary>
+            by the formula ordering the hot tab
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.AllSort.Week">
+            <summary>
+            by the formula ordering the week tab
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.AllSort.Month">
+            <summary>
+            by the formula ordering the month tab
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.FilterBehavior.Strict">
+            <summary>
+            Getting a property not included in the filter throws a FilterException.
+            <para>All filters must be "registered" (with the RegisterFilters method) prior to being used.</para>
+            <remarks>IMPORTANT: RegisterFilters incurs one API call (per 20 unregistered filters) each time it's called, so for best performance,
+            it should be called sparingly and at most once per filter, e.g. once only when your app starts.</remarks>
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.FilterBehavior.Loose">
+            <summary>
+            Getting a property not included in the filter returns that property type's default value.
+            <para>Filters do not need to be "registered".</para>
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.Sort.Rank">
+            <summary>
+            rank
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Badges.Sort.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.Sort.Activity">
+            <summary>
+            last_activity_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.Sort.Votes">
+            <summary>
+            score
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Questions.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Users.Sort.Reputation">
+            <summary>
+            reputation
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Users.Sort.Creation">
+            <summary>
+            creation_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Users.Sort.Name">
+            <summary>
+            display_name
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Users.Sort.Modified">
+            <summary>
+            last_modified_date
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Tags.Sort.Popular">
+            <summary>
+            count
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Tags.Sort.Activity">
+            <summary>
+            the creation_date of the last question asked with the tag
+            </summary>
+        </member>
+        <member name="F:StackExchange.StacMan.Tags.Sort.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+    </members>
+</doc>

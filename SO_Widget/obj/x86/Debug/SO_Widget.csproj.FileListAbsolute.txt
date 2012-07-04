@@ -1,0 +1,13 @@
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\bin\Debug\SO_Widget.exe
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\bin\Debug\SO_Widget.pdb
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\MainWindow.baml
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\MainWindow.g.cs
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\App.g.cs
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\SO_Widget_MarkupCompile.cache
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\SO_Widget.g.resources
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\SO_Widget.Properties.Resources.resources
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\SO_Widget.exe
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Debug\SO_Widget.pdb
