@@ -53,6 +53,7 @@ namespace SO_Widget
             finally
             {
                 if (repRdr != null) repRdr.Close();
+                ValLabel.Content = currentRep;
             }
         }
 
@@ -68,7 +69,6 @@ namespace SO_Widget
                 timer.Tick += new EventHandler(Timer_Tick);
                 timer.Interval = new TimeSpan(0, 0, 60);
                 timer.Start();
-                Timer_Tick(this, null);
             }
             catch
             {
@@ -84,6 +84,7 @@ namespace SO_Widget
         {
             ReadLastRep();
             InitTimer();
+            Timer_Tick(this, null);
         }
 
         private string DisplayTruncated(string str)
@@ -116,10 +117,11 @@ namespace SO_Widget
 
                 var time = DateTime.Now;
                 LastUpdLabel.Content = time.ToShortTimeString();
+                DiscImg.Visibility = System.Windows.Visibility.Hidden;
             }
             catch
             {
-                ValLabel.Content = "Server unreachable";
+                DiscImg.Visibility = System.Windows.Visibility.Visible;
             }
         }
 

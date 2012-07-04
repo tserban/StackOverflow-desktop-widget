@@ -19,8 +19,8 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="0.4*"/>
                     </Grid.ColumnDefinitions>
                     <Image Source="img\SO_logo.png" Grid.ColumnSpan="3"/>
                     <Label Margin="5,5,0,0" Grid.Row="1" Name="RepLabel" Foreground="White" FontWeight="Bold" Content="Reputation:" />
@@ -34,7 +34,12 @@
             </Border>
         </Grid>
         <Grid Grid.Column="1">
-            <Image Name="CloseImg" Source="img\close.png" VerticalAlignment="Top" Height="20" Width="20" MouseUp="CloseImg_MouseUp"/>
+            <Image Name="CloseImg" Source="img\close.png" VerticalAlignment="Top" Height="20" Width="20" MouseUp="CloseImg_MouseUp">
+                <Image.ToolTip>Close</Image.ToolTip>
+            </Image>
+            <Image Name="DiscImg" Source="img\disc.png" VerticalAlignment="Top" Margin="0, 25, 0, 0" Height="20" Width="20">
+                <Image.ToolTip>Connection failed</Image.ToolTip>
+            </Image>
         </Grid>
     </Grid>
 </Window>

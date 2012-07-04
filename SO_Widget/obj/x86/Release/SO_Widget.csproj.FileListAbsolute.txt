@@ -18,3 +18,4 @@ D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\bin\Release\StacMan.pdb
 D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\bin\Release\StacMan.xml
 D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\bin\Release\ServiceStack.Text.pdb
 D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\bin\Release\ServiceStack.Text.xml
+D:\VSProjects\C#\Projects\SO_Widget\SO_Widget\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
