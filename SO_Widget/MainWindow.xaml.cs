@@ -28,7 +28,11 @@ namespace SO_Widget
         private System.Windows.Threading.DispatcherTimer timer = null;
         private int currentRep;
         private int lastRep;
+        private bool isValidUser;
 
+        /// <summary>
+        /// Creates a new instance of class MainWindow.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +40,9 @@ namespace SO_Widget
             Left = SystemParameters.PrimaryScreenWidth - Width - 10;
         }
 
+        /// <summary>
+        /// Reads the recorded reputation from when the application was last closed.
+        /// </summary>
         private void ReadLastRep()
         {
             TextReader repRdr = null;
@@ -53,11 +60,14 @@ namespace SO_Widget
             finally
             {
                 if (repRdr != null) repRdr.Close();
-                ValLabel.Content = currentRep;
+                ValLabel.Content = currentRep.ToString("#,###");
             }
         }
 
-        private void InitTimer()
+        /// <summary>
+        /// Reads the userId from the user.txt file.
+        /// </summary>
+        private void ReadUser()
         {
             TextReader rdr = null;
             try
@@ -65,14 +75,12 @@ namespace SO_Widget
                 rdr = new StreamReader("user.txt");
                 userId = Int32.Parse(rdr.ReadLine());
                 profileLink = "http://stackoverflow.com/users/" + userId;
-                timer = new System.Windows.Threading.DispatcherTimer();
-                timer.Tick += new EventHandler(Timer_Tick);
-                timer.Interval = new TimeSpan(0, 0, 60);
-                timer.Start();
+                isValidUser = true;
             }
             catch
             {
-                ValLabel.Content = "Invalid user id";
+                DiscImg.ToolTip = "Invalid user id";
+                DiscImg.Visibility = System.Windows.Visibility.Visible;
             }
             finally
             {
@@ -80,13 +88,22 @@ namespace SO_Widget
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Initiates the periodic update of the reputation label.
+        /// </summary>
+        private void InitTimer()
         {
-            ReadLastRep();
-            InitTimer();
-            Timer_Tick(this, null);
+            timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 60);
+            timer.Start();
         }
 
+        /// <summary>
+        /// Truncates a string that is longer than 3 characters e.g. "abcd" becomes "ab..."
+        /// </summary>
+        /// <param name="str">The input string.</param>
+        /// <returns>The truncated string.</returns>
         private string DisplayTruncated(string str)
         {
             if (str.Length <= 3) return str;
@@ -96,32 +113,46 @@ namespace SO_Widget
             }
         }
 
+        #region Handlers
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReadLastRep();
+            ReadUser();
+            InitTimer();
+            Timer_Tick(this, null);
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
-            try
+            if (isValidUser)
             {
-                var client = new StacManClient(FilterBehavior.Strict, key: "QSWiEZktKmMv8QlQObPl8Q((");
-                var request = client.Users.GetByIds("stackoverflow", new int[] { userId });
-                int rep = request.Result.Data.Items[0].Reputation;                
-                ValLabel.Content = rep.ToString();
-
-                string sign = "";
-                int diff = rep - lastRep;
-                if (diff != 0)
+                try
                 {
-                    if (diff > 0) sign = "+";
-                    DiffLabel.Content = sign + DisplayTruncated(diff.ToString());
-                    DiffLabel.Visibility = System.Windows.Visibility.Visible;
-                }
-                currentRep = rep;
+                    var client = new StacManClient(FilterBehavior.Strict, key: "QSWiEZktKmMv8QlQObPl8Q((");
+                    var request = client.Users.GetByIds("stackoverflow", new int[] { userId });
+                    int rep = request.Result.Data.Items[0].Reputation;
+                    ValLabel.Content = rep.ToString("#,###");
 
-                var time = DateTime.Now;
-                LastUpdLabel.Content = time.ToShortTimeString();
-                DiscImg.Visibility = System.Windows.Visibility.Hidden;
-            }
-            catch
-            {
-                DiscImg.Visibility = System.Windows.Visibility.Visible;
+                    string sign = "";
+                    int diff = rep - lastRep;
+                    if (diff != 0)
+                    {
+                        if (diff > 0) sign = "+";
+                        DiffLabel.Content = sign + DisplayTruncated(diff.ToString("#,###"));
+                        DiffLabel.Visibility = System.Windows.Visibility.Visible;
+                    }
+                    currentRep = rep;
+
+                    var time = DateTime.Now;
+                    LastUpdLabel.Content = time.ToShortTimeString();
+                    DiscImg.Visibility = System.Windows.Visibility.Hidden;
+                }
+                catch
+                {
+                    DiscImg.ToolTip = "Connection failed";
+                    DiscImg.Visibility = System.Windows.Visibility.Visible;
+                }
             }
         }
 
@@ -155,5 +186,7 @@ namespace SO_Widget
             DiffLabel.Visibility = System.Windows.Visibility.Hidden;
             lastRep = currentRep;
         }
+
+        #endregion
     }
 }
