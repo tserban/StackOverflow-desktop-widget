@@ -86,6 +86,15 @@ namespace SO_Widget
             InitTimer();
         }
 
+        private string DisplayTruncated(string str)
+        {
+            if (str.Length <= 3) return str;
+            else
+            {
+                return str.Substring(0, 2) + "...";
+            }
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             try
@@ -100,7 +109,7 @@ namespace SO_Widget
                 if (diff != 0)
                 {
                     if (diff > 0) sign = "+";
-                    DiffLabel.Content = sign + diff.ToString();
+                    DiffLabel.Content = sign + DisplayTruncated(diff.ToString());
                     DiffLabel.Visibility = System.Windows.Visibility.Visible;
                 }
                 currentRep = rep;
