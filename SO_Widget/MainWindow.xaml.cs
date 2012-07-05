@@ -15,6 +15,8 @@ using System.Net;
 using System.IO;
 using StackExchange.StacMan;
 using System.Windows.Media.Animation;
+using System.Timers;
+using System.Threading.Tasks;
 
 namespace SO_Widget
 {
@@ -25,7 +27,7 @@ namespace SO_Widget
     {
         private int userId;
         private string profileLink = null;
-        private System.Windows.Threading.DispatcherTimer timer = null;
+        private Timer timer = null;
         private int currentRep;
         private int lastRep;
         private bool isValidUser;
@@ -93,9 +95,9 @@ namespace SO_Widget
         /// </summary>
         private void InitTimer()
         {
-            timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 60);
+            timer = new Timer();
+            timer.Elapsed += new ElapsedEventHandler(Timer_Tick);
+            timer.Interval = 60000;
             timer.Start();
         }
 
@@ -113,6 +115,30 @@ namespace SO_Widget
             }
         }
 
+        /// <summary>
+        /// Refreshes the reputation display.
+        /// </summary>
+        private void Refresh()
+        {
+            Task.Factory.StartNew(() => Timer_Tick(this, null));
+        }
+
+        /// <summary>
+        /// Updates the UI with the given Action in a thread-safe manner.
+        /// </summary>
+        /// <param name="action">The Action used to update the UI.</param>
+        private void UpdateUI(Action action)
+        {
+            if (!this.Dispatcher.CheckAccess())
+            {
+                this.Dispatcher.BeginInvoke(action);
+            }
+            else
+            {
+                action();
+            }
+        }
+
         #region Handlers
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -120,7 +146,7 @@ namespace SO_Widget
             ReadLastRep();
             ReadUser();
             InitTimer();
-            Timer_Tick(this, null);
+            Refresh();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -132,26 +158,39 @@ namespace SO_Widget
                     var client = new StacManClient(FilterBehavior.Strict, key: "QSWiEZktKmMv8QlQObPl8Q((");
                     var request = client.Users.GetByIds("stackoverflow", new int[] { userId });
                     int rep = request.Result.Data.Items[0].Reputation;
-                    ValLabel.Content = rep.ToString("#,###");
 
                     string sign = "";
+                    string diffString = "";
+                    System.Windows.Visibility visibility = System.Windows.Visibility.Hidden;
+
                     int diff = rep - lastRep;
                     if (diff != 0)
                     {
                         if (diff > 0) sign = "+";
-                        DiffLabel.Content = sign + DisplayTruncated(diff.ToString("#,###"));
-                        DiffLabel.Visibility = System.Windows.Visibility.Visible;
+                        diffString = sign + DisplayTruncated(diff.ToString("#,###"));
+                        visibility = System.Windows.Visibility.Visible;
                     }
                     currentRep = rep;
 
                     var time = DateTime.Now;
-                    LastUpdLabel.Content = time.ToShortTimeString();
-                    DiscImg.Visibility = System.Windows.Visibility.Hidden;
+                    UpdateUI(
+                        (Action)(() =>
+                        {
+                            DiffLabel.Content = diffString;
+                            DiffLabel.Visibility = visibility;
+                            ValLabel.Content = rep.ToString("#,###");
+                            LastUpdLabel.Content = time.ToShortTimeString();
+                            DiscImg.Visibility = System.Windows.Visibility.Hidden;
+                        }));
                 }
                 catch
                 {
-                    DiscImg.ToolTip = "Connection failed";
-                    DiscImg.Visibility = System.Windows.Visibility.Visible;
+                    UpdateUI(
+                        (Action)(() =>
+                        {
+                            DiscImg.ToolTip = "Connection failed";
+                            DiscImg.Visibility = System.Windows.Visibility.Visible;
+                        }));
                 }
             }
         }
@@ -163,7 +202,7 @@ namespace SO_Widget
 
         private void RefreshLabel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Timer_Tick(this, null);
+            Refresh();
         }
 
         private void CloseImg_MouseUp(object sender, MouseButtonEventArgs e)
