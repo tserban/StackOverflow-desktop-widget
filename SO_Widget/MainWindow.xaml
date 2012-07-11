@@ -3,6 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="StackOverflow Widget" AllowsTransparency="True" Opacity="0.8" WindowStyle="None" Height="130" Width="250" ShowInTaskbar="False" ResizeMode="NoResize" Loaded="Window_Loaded"
         Background="Transparent" Closing="Window_Closing">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Always On Top" Click="MenuItem_Click" Checked="MenuItem_Checked" Unchecked="MenuItem_Unchecked"/>
+        </ContextMenu>
+    </Window.ContextMenu>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

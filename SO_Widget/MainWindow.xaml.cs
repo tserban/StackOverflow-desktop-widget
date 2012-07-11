@@ -226,6 +226,22 @@ namespace SO_Widget
             lastRep = currentRep;
         }
 
+        private void MenuItem_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
+
+        private void MenuItem_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = this.ContextMenu.Items[0] as MenuItem;
+            item.IsChecked = !item.IsChecked;
+        }
+
         #endregion
     }
 }
