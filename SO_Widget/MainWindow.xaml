@@ -27,8 +27,8 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="0.6*"/>
-                        <ColumnDefinition Width="0.4*"/>
+                        <ColumnDefinition Width="0.55*"/>
+                        <ColumnDefinition Width="0.45*"/>
                     </Grid.ColumnDefinitions>
                     <Image Source="img\SO_logo.png" Grid.ColumnSpan="3"/>
                     <Label Margin="10,5,0,0" Grid.Row="1" Name="RepLabel" Foreground="White" FontWeight="Bold" Content="Reputation:" />

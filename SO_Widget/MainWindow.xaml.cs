@@ -38,7 +38,7 @@ namespace SO_Widget
         public MainWindow()
         {
             InitializeComponent();
-            Top = 5;
+            Top = 7;
             Left = SystemParameters.PrimaryScreenWidth - Width - 10;
         }
 
