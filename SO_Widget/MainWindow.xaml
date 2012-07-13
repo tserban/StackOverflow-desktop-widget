@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SO_Widget.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="StackOverflow Widget" AllowsTransparency="True" Opacity="0.8" WindowStyle="None" Height="145" Width="260" ShowInTaskbar="False" ResizeMode="NoResize" Loaded="Window_Loaded"
+        Title="StackOverflow Widget" AllowsTransparency="True" Opacity="0.8" WindowStyle="None" Height="150" Width="255" ShowInTaskbar="False" ResizeMode="NoResize" Loaded="Window_Loaded"
         Background="Transparent" Closing="Window_Closing">
     <Window.ContextMenu>
         <ContextMenu>
@@ -11,12 +11,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.12*" />
         </Grid.ColumnDefinitions>
-        <Grid Margin="0,0,7,10">
+        <Grid Margin="5,5,8,12">
             <Border BorderThickness="1" CornerRadius="10,10,10,10" BorderBrush="Black" Background="SteelBlue">
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="10"/>
+                    <DropShadowEffect BlurRadius="15"/>
                 </Border.Effect>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -42,13 +42,13 @@
             </Border>
         </Grid>
         <Grid Grid.Column="1">
-            <Image Name="CloseImg" Source="img\close.png" VerticalAlignment="Top" Height="20" Width="20" MouseUp="CloseImg_MouseUp">
+            <Image Name="CloseImg" Source="img\close.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0" Height="20" Width="20" MouseUp="CloseImg_MouseUp">
                 <Image.Effect>
                     <DropShadowEffect/>
                 </Image.Effect>
                 <Image.ToolTip>Close</Image.ToolTip>
             </Image>
-            <Image Name="DiscImg" Source="img\disc.png" VerticalAlignment="Top" Margin="0, 25, 0, 0" Height="20" Width="20">
+            <Image Name="DiscImg" Source="img\disc.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 28, 0, 0" Height="20" Width="20">
                 <Image.Effect>
                     <DropShadowEffect/>
                 </Image.Effect>
