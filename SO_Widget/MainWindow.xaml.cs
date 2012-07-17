@@ -38,8 +38,16 @@ namespace SO_Widget
         public MainWindow()
         {
             InitializeComponent();
-            Top = 7;
-            Left = SystemParameters.PrimaryScreenWidth - Width - 10;
+            SetWindowPosition();
+        }
+
+        /// <summary>
+        /// Sets the window position to the top-right corner of the screen.
+        /// </summary>
+        private void SetWindowPosition()
+        {
+            this.Top = 7;
+            this.Left = SystemParameters.PrimaryScreenWidth - this.Width - 10;
         }
 
         /// <summary>
@@ -240,6 +248,11 @@ namespace SO_Widget
         {
             MenuItem item = this.ContextMenu.Items[0] as MenuItem;
             item.IsChecked = !item.IsChecked;
+        }
+
+        private void Window_LocationChanged(object sender, EventArgs e)
+        {
+            SetWindowPosition();
         }
 
         #endregion
